@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.1 (2022-08-09)
+
+
+
 ### [2.0.0](https://github.com/Kocal/vue-web-extension/compare/v1.12.0...v2.0.0) (2020-08-31)
 
 Vue-web-extension now becomes a [Vue CLI 3+ preset](https://cli.vuejs.org/guide/plugins-and-presets.html#presets)!
