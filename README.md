@@ -1,51 +1,48 @@
 # vue-web-extension
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ae42a82e-1338-4b34-85b8-9100c3d47510/deploy-status)](https://app.netlify.com/sites/vue-web-extension/deploys)
+This template should help get you started developing with Vue 3 in Vite.
 
-:warning: This README is for the master version of the preset. If you use the v1 of this boilerplate with Vue-CLI 2 support, please see [`v1` branch](https://github.com/Kocal/vue-web-extension/tree/v1).
+## Recommended IDE Setup
 
----
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-This Vue CLI preset allows you to quickly start a web extension containing:
+## Customize configuration
 
-- Everything you need to build a web extension (`manifest.json`, `.zip` building, ...), thanks to [adambullmer/vue-cli-plugin-browser-extension](https://github.com/adambullmer/vue-cli-plugin-browser-extension)
-- [Vue 2+](https://github.com/vuejs/vue)
-- [Vue-router](https://github.com/vuejs/vue-router) and [Vuex](https://github.com/vuejs/vuex)
-- [Axios](https://github.com/axios/axios) (configurable)
-- [Babel](https://github.com/babel/babel) with [preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env)
-- [ESLint](https://github.com/eslint/eslint) and [Prettier](https://github.com/prettier/prettier) (both configurable)
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Requirements
+## Project Setup
 
-- Node.js >= 10 and npm >= 5
-- [git](https://git-scm.com)
-- [vue-cli 3+](https://github.com/vuejs/vue-cli)
-
-## Documentation
-
-The documentation can be found on [vue-web-extension.netlify.app](https://vue-web-extension.netlify.app/). Please check the documentation website and the [open and closed issues](https://github.com/Kocal/vue-web-extension/issues?q=), before raising a new issue.
-
-## Usage
-
-```bash
-$ vue create --preset kocal/vue-web-extension my-extension
-$ cd my-extension
-$ npm run build
+```sh
+npm install
 ```
 
-### `npm run build`
+### Compile and Hot-Reload for Development
 
-Build the extension into `dist` folder for **production**.
+```sh
+npm run dev
+```
 
-A zip file is also built and is located in `artifacts` directory.
+### Compile and Minify for Production
 
-### `npm run serve`
+```sh
+npm run build
+```
 
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-Build the extension for **development** and watch over file changes.
+```sh
+npm run test:unit
+```
 
-It also automatically reload your extension into your browsers, thanks to [webpack-extension-reloader](https://github.com/rubenspgcavalcante/webpack-extension-reloader) plugin.
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
 
-## Options
+```sh
+npm run build
+npm run test:e2e # or `npm run test:e2e:ci` for headless testing
+```
 
-See https://github.com/adambullmer/vue-cli-plugin-browser-extension#plugin-options
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
