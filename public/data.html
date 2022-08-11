@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      table { margin: 10px; display: inline-block; font-size: 15px; border-collapse: collapse;}
+      #shortcut { width: 20px; }
+      .command { font-weight: bold; }
+      .desc { display: block; font-size: 0.9em; padding: 5px 15px; margin-left: 5px; }
+      .status { padding:10px; color: #008000; min-height: 40px; }
+      
+      #addBtn { margin-left: 25px; }
+      .btn {   margin: 10px 0 10px 5px; border: 1px solid #4973bf; background-color: #4973bf; color:white; padding:5px 10px; font-weight: bold;}
+      .btn:hover {background-color: white; color:#4973bf; cursor:pointer;}
+      .submit { margin-left: 10px; padding: 5px 10px; background: #f9f9fa; border: 1px solid #ccc; }
+      .submit:hover { background: #ebebeb; cursor: pointer; }
+      
+      tr:first-child td { border:none; }
+      td:not(:first-child) { border: 1px solid lightgray; padding : 0px 5px; }
+      td { min-width: 20px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      
+      .deleteRow {color: #4973bf; text-align: center; border:none; margin: 0px 3px;}
+      .deleteRow:hover {background-color: rgba(73, 115, 191, 0.3);}
+      .deleteRow:hover~ td {background-color: rgba(73, 115, 191, 0.3);}
+      
+      .deleteCol {color: #4973bf; text-align: center; border:none;}
+      .selectCol {background-color: rgba(73, 115, 191, 0.3);
+      tr:nth-child(even) { background: #F3F3F3; }
+      #comment { margin: 10px 0 10px 5px; }
+    </style>
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css"/>
+    <script src="data.js"></script>    
+  </head>
+  <body>
+    <div>
+      <button id="addBtn" class="btn">데이터 추가</button>
+      <button id="resetBtn" class="btn">초기화</button>
+      <button id="confirmBtn" class="btn">완료</button>   
+      <button id="selectNextBtn" class="btn">다중페이지 선택</button>
+    </div>
+    <div>
+      <table id="result_data">
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div id="comment" style = "margin-left: 10px;">
+    추가된 데이터가 원하는 데이터가 아니면,<br>
+    정확한 데이터의 규칙을 지정하기 위하여 "두번째 엘리먼트"를 선택해 주세요. <br>
+    <button id="addElement" class="btn">두번째 엘리먼트</button>
+    </div>
+  </body>
+</html>

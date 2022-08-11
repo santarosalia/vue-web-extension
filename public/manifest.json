@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Worktronics Web Recorder",
+  "description": "Worktronics Edentns WebRecorder",
+  "version": "1.2.9",
+  "icons": {
+    "64": "icons/EdenXpath_default.png",
+    "16": "icons/EdenXpath_default.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icons/EdenXpath_default.png",
+    "default_title": "이든티앤에스 웹레코더"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["*://*/*"],
+      "include_globs": ["*type=resul*"],
+      "js": ["jquery.js", "data.js", "inspect.js"]
+    }
+  ],
+  "commands": {
+    "toggle-xpath": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Toggle plugin"
+    }
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "activeTab",
+    "<all_urls>",
+    "storage",
+    "contextMenus",
+    "tabs",
+    "webNavigation"
+  ]
+}
