@@ -114,9 +114,9 @@ var xPathFinder =
 
         if (target.id !== this.contentNode) {
           if (target.id) {
-            this.XPath = target.id;
+            this.XPath = `//*[@id="${target.id}"]`;
           } else if (document.getElementsByName(target.name).length == 1) {
-            this.XPath = target.name;
+            this.XPath = `//*[@name="${target.name}"`;
           } else if (
             target.tagName == "A" ||
             target.parentElement.tagName == "A"
@@ -1432,30 +1432,7 @@ var xPathFinder =
         }
         return parts.length ? "/" + parts.reverse().join("/") : "";
       }
-      // getCssSelector(el) {
-      //   if (!(el instanceof Element)) return;
-      //   var path = [];
-      //   while (el.nodeType === Node.ELEMENT_NODE) {
-      //     var selector = el.nodeName.toLowerCase();
-      //     if (el.id) {
-      //       path.unshift("#" + el.id);
-      //       break;
-      //     } else if (el.className) {
-      //       path.unshift("." + el.className.trim().replace(/\s+/g, "."));
-      //       break;
-      //     } else {
-      //       var sib = el,
-      //         nth = 1;
-      //       while ((sib = sib.previousElementSibling)) {
-      //         if (sib.nodeName.toLowerCase() == selector) nth++;
-      //       }
-      //       if (nth != 1) selector += ":nth-of-type(" + nth + ")";
-      //     }
-      //     path.unshift(selector);
-      //     el = el.parentNode;
-      //   }
-      //   return path.join(">");
-      // }
+
       getCssSelector(elSrc) {
         if (!(elSrc instanceof Element)) return;
         var sSel,
@@ -1527,8 +1504,35 @@ var xPathFinder =
       }
 
       getLinkText(el) {
-        return el.text;
+        let count = 1;
+        const result = document.evaluate(
+          `//*[text()="${el.text}"]`,
+          document,
+          null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+          null
+        );
+
+        if (result.snapshotLength > 1) {
+          for (let i = 0; i < result.snapshotLength; i++) {
+            if (
+              el ==
+              document.evaluate(
+                `(//*[text()="${el.text}"])[${i}]`,
+                document,
+                null,
+                XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+                null
+              )
+            ) {
+              count = i;
+              break;
+            }
+          }
+        }
+        return `(//*[text()="${el.text}"])[${count}]`;
       }
+
       getFullXpath(element) {
         console.log(element);
         if (element.tagName == "html") return "/html[1]";
@@ -1735,6 +1739,7 @@ var xPathFinder =
             },
             function (result) {
               data = result.data;
+              console.log(data);
               let i = 0;
               data.forEach(function (item, index, array) {
                 i++;

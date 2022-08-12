@@ -650,7 +650,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
 // });
 const popupToggle = () => {
   chrome.windows.create({
-    url: chrome.runtime.getURL("popup.html"),
+    url: chrome.runtime.getURL("index.html"),
     type: "popup",
     height: 600,
     width: 1000,
